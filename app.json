@@ -1,5 +1,7 @@
 {
   "expo": {
+    "name":"deadlift",
+    "slug":"deadlift",
     "scheme": "acme",
     "web": { "bundler": "metro" },
     "splash": {
