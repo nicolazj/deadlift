@@ -1,17 +1,22 @@
-import { View, Text, SafeAreaView } from 'react-native';
-import { Children } from 'expo-router';
-import { SplashScreen } from 'expo-router';
-import { useUser } from '../svc/useUser';
-import { StatusBar } from 'expo-status-bar';
+import { Inter_900Black, useFonts } from '@expo-google-fonts/inter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Children, SplashScreen } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { View } from 'react-native';
+import { useUser } from '../svc/useUser';
+
 
 const queryClient = new QueryClient();
 
 export default function Layout() {
   let user = useUser();
 
-  if (!user) {
+  let [fontsLoaded] = useFonts({
+    Inter_900Black,
+  });
+
+  if (!user || !fontsLoaded) {
     return <SplashScreen />;
   }
 

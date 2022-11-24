@@ -4,6 +4,7 @@ import { onUpdateParams, Slider } from '../components/slider';
 import { supabase } from '../lib/supabase';
 import { useQueryClient } from '@tanstack/react-query';
 import { useLink } from 'expo-router';
+import { P } from '../components/primitives';
 
 export default function Page() {
   let [weight, setWeight] = useState(100);
@@ -38,13 +39,13 @@ export default function Page() {
           factor={0.3}
         >
           <View className="flex-1 items-center justify-center">
-            <Text className="text-[64px] text-white">Weight</Text>
-            <Text
-              className="text-[100px] text-white"
+            <P.Text className="text-5xl ">Weight</P.Text>
+            <P.Text
+              className="text-9xl p-4"
               style={{ fontVariant: ['tabular-nums'] }}
             >
               {weight}
-            </Text>
+            </P.Text>
           </View>
         </Slider>
       </View>
@@ -57,23 +58,18 @@ export default function Page() {
           factor={0.05}
         >
           <View className="flex-1 items-center justify-center">
-            <Text className="text-[64px] text-white">Reps</Text>
-            <Text
-              className="text-[100px] text-white "
+            <P.Text className="text-5xl">Reps</P.Text>
+            <P.Text
+              className="text-9xl p-4"
               style={{ fontVariant: ['tabular-nums'] }}
             >
               {reps}
-            </Text>
+            </P.Text>
           </View>
         </Slider>
       </View>
       <View className="flex-1 bg-violet-700">
-        <Pressable
-          onPress={onAddLog}
-          className="flex-1 items-center justify-center"
-        >
-          <Text className="text-[100px] text-white ">Add</Text>
-        </Pressable>
+        <P.Button onPress={onAddLog}>Add</P.Button>
       </View>
     </View>
   );
